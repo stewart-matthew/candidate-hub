@@ -13,7 +13,19 @@ router.get('/test', (req, res) => res.send('candidate route testing!'));
 // @description Get all candidates
 // @access Public
 router.get('/', (req, res) => {
-  Candidate.find()
+  let filter = {};
+  if (req.query.firstName) filter.firstName = req.query.firstName;
+  if (req.query.lastName) filter.lastName = req.query.lastName;
+  if (req.query.gpa) filter.gpa = { $gte: req.query.gpa };
+  if (req.query.major) filter.major = req.query.major;
+  if (req.query.degree) filter.degree = req.query.degree;
+  if (req.query.graduationDate) filter.graduationDate = req.query.graduationDate;
+  if (req.query.positionType) filter.positionType = req.query.positionType;
+  if (req.query.sponsorshipNeeded) filter.sponsorshipNeeded = req.query.sponsorshipNeeded;
+  if (req.query.event) filter.event = req.query.event;
+  if (req.query.starred) filter.starred = req.query.starred;
+  
+  Candidate.find(filter)
     .then(candidates => res.json(candidates))
     .catch(err => res.status(404).json({ nocandidatesfound: 'No Candidates found' }));
 });
@@ -27,7 +39,7 @@ router.get('/:id', (req, res) => {
     .catch(err => res.status(404).json({ nocandidatefound: 'No Candidate found' }));
 });
 
-// @route GET api/candidates
+// @route POST api/candidates
 // @description add/save candidate
 // @access Public
 router.post('/', (req, res) => {
@@ -36,7 +48,7 @@ router.post('/', (req, res) => {
     .catch(err => res.status(400).json({ error: 'Unable to add this candidate' }));
 });
 
-// @route GET api/candidates/:id
+// @route PUT api/candidates/:id
 // @description Update candidate
 // @access Public
 router.put('/:id', (req, res) => {
@@ -47,7 +59,7 @@ router.put('/:id', (req, res) => {
     );
 });
 
-// @route GET api/candidates/:id
+// @route DELETE api/candidates/:id
 // @description Delete candidate by id
 // @access Public
 router.delete('/:id', (req, res) => {
