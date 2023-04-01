@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Image, Text, View } from 'react-native';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -21,14 +21,12 @@ export default function App() {
     <View style={styles.container}>
       <NavigationContainer ref={navigationRef}>
         <Stack.Navigator initialRouteName="Home" screenOptions={{
-          headerShown: true,
-          headerStyle: {
-            backgroundColor: Colors.HEADER_COLOR
-          },
-          headerTintColor: '#fff',
-          headerTitleStyle: {
-            fontWeight: 'bold',
-            fontSize: 20
+          header: () => {
+            return (<View style={styles.header}>
+              <Image style={styles.image} resizeMode='contain'
+                source={require("./src/images/Pariveda_Logo.png")}
+              />
+            </View>)
           }
         }}>
           <Stack.Screen name="Home" component={HomeScreen} />

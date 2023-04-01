@@ -2,6 +2,14 @@ import { StyleSheet } from 'react-native';
 import * as Colors from './colors';
 
 const styles = StyleSheet.create({
+    header: {
+        backgroundColor: Colors.HEADER_COLOR,
+        paddingTop: '5%'
+    },
+    image: {
+        width: 180,
+        alignSelf: 'center'
+    },
     button: {
         borderStyle: 'solid',
         borderWidth: '2px',
