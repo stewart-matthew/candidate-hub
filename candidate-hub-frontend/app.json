@@ -1,0 +1,11 @@
+{
+  "expo": {
+    "name": "candidate-hub-frontend",
+    "slug": "candidate-hub-frontend",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  },
+  "name": "candidate-hub-frontend"
+}
