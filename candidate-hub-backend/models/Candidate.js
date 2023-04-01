@@ -17,6 +17,10 @@ const CandidateSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  degree: {
+    type: String,
+    required: true
+  },
   gpa: {
     type: Number,
     required: true
@@ -30,6 +34,22 @@ const CandidateSchema = new mongoose.Schema({
     required: true
   },
   sponsorshipNeeded: {
+    type: Boolean,
+    required: true
+  },
+  resume: {
+    data: Buffer,
+    contentType: String
+  },
+  event: {
+    type: String,
+    required: true
+  },
+  uploadDate: {
+    type: Date,
+    required: true
+  },
+  starred: {
     type: Boolean,
     required: true
   }
