@@ -10,6 +10,8 @@ import { navigationRef } from './src/utils/RootNavigation';
 import HomeScreen from './src/screens/Home';
 import AddCandidateScreen from './src/screens/AddCandidate';
 import BrowseCandidatesScreen from './src/screens/BrowseCandidates';
+import UploadResumeScreen from './src/screens/UploadResume';
+import CandidateFormScreen from './src/screens/CandidateForm';
 
 import { styles } from './src/styles/styles';
 import * as Colors from './src/styles/colors';
@@ -32,6 +34,8 @@ export default function App() {
           <Stack.Screen name="Home" component={HomeScreen} />
           <Stack.Screen name="AddCandidate" component={AddCandidateScreen} />
           <Stack.Screen name="BrowseCandidates" component={BrowseCandidatesScreen} />
+          <Stack.Screen name="UploadResume" component={UploadResumeScreen} />
+          <Stack.Screen name="CandidateForm" component={CandidateFormScreen} />
         </Stack.Navigator>
       </NavigationContainer>
 
