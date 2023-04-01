@@ -6,13 +6,11 @@ const AddCandidateScreen = ({ navigation }) => {
   return (
     <View>
       <Button
-          onPress={() => { navigation.navigate('UploadResume') }}
+          onPress={() => { alert('balls');/*navigation.navigate('AddCandidate')*/ }}
           title={"Upload Resume"}
         />
-      <Button
-          onPress={() => { navigation.navigate('CandidateForm') }}
-          title={"Skip"}
-        />
+      <TextInput     
+      />
     </View>
   )
 }
