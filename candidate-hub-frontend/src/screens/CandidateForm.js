@@ -7,23 +7,23 @@ const CandidateFormScreen = ({ navigation }) => {
   return (
     <View>
       <ScrollView style={styles.ScrollView}>     
-          <InputField input = {"First Name"}
+          <InputField input = {"First Name"} textType = {"text"}
           />  
-          <InputField input = {"Last Name"}
+          <InputField input = {"Last Name"} textType = {"text"}
           />  
-          <InputField input = {"Email Address"}
+          <InputField input = {"Email Address"} textType = {"email"}
           />  
-          <InputField input = {"Major"}
+          <InputField input = {"Major"} textType = {"text"}
           />  
-          <InputField input = {"GPA"}
+          <InputField input = {"GPA"} textType = {"decimal"}
           />  
-          <InputField input = {"Graduation Date"}
+          <InputField input = {"Graduation Date"} textType = {"text"}
           />  
-          <InputField input = {"Position Type"}
+          <InputField input = {"Position Type"} textType = {"text"}
           />  
-          <InputField input = {"Sponsership Needed"}
+          <InputField input = {"Sponsership Needed"} textType = {"text"}
           />  
-          <InputField input = {"Are you gay?"}
+          <InputField input = {"Are you gay?"} textType = {"text"}
           />  
       </ScrollView>
     </View>
