@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const CandidateSchema = new mongoose.Schema({
+const CandidateNoResumeSchema = new mongoose.Schema({
   email: {
     type: String,
     required: true
@@ -37,9 +37,6 @@ const CandidateSchema = new mongoose.Schema({
     type: Boolean,
     required: true
   },
-  resume: {
-    type: String
-  },
   event: {
     type: String,
     required: true
@@ -54,4 +51,4 @@ const CandidateSchema = new mongoose.Schema({
   }
 });
 
-module.exports = Candidate = mongoose.model('candidate', CandidateSchema);
+module.exports = Candidate = mongoose.model('candidateNoResume', CandidateNoResumeSchema);

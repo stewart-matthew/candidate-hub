@@ -4,6 +4,7 @@ const router = express.Router();
 
 // Load Candidate model
 const Candidate = require('../../models/Candidate');
+const CandidateNoResume = require('../../models/CandidateNoResume');
 
 // @route GET api/candidates/test
 // @description tests candidates route
@@ -26,7 +27,7 @@ router.get('/', (req, res) => {
   if (req.query.event) filter.event = req.query.event;
   if (req.query.starred) filter.starred = req.query.starred;
   
-  Candidate.find(filter)
+  Candidate.find(filter, {resume: 0})
     .then(candidates => res.json(candidates))
     .catch(err => res.status(404).json({ nocandidatesfound: 'No Candidates found' }));
 });
@@ -60,7 +61,9 @@ router.post('/', (req, res) => {
   // else {
     Candidate.create(req.body)
     .then(candidate => res.json({ msg: 'Candidate added successfully' }))
-    .catch(err => res.status(400).json({ error: 'Unable to add this candidate' }));
+    .catch(err => {
+      res.status(400).json({ error: 'Unable to add this candidate' })
+      console.log(err)});
   // }
 });
 
