@@ -55,7 +55,18 @@ const styles = StyleSheet.create({
     },
     container: {
         flex: 1
-    }
-});
+    },
+    textInput: {
+          borderColor: Colors.InputField,
+          borderBottomColor: '#d1d1d1',
+          borderBottomWidth: 2,
+          height: 40,
+          minWidth: '100%',
+          margin: 5,
+          borderWidth: 1,
+          fontSize: 15,
+          padding: 0
+        }
+      });
 
 export { styles };

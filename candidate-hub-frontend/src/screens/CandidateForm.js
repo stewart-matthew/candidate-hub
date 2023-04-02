@@ -1,31 +1,47 @@
-import { Text, View, StyleSheet, ScrollView, StatusBar } from 'react-native';
+import { Text, View, StyleSheet, ScrollView, TextInput, React } from 'react-native';
 import Button from '../components/Button';
 import InputField from '../components/InputField';
 import { styles } from '../styles/styles';
 
 const CandidateFormScreen = ({ route, navigation }) => {
   const uri = route.params;
+ // const [text, onChangeText] = React.useState('This is actual text');
+
   return (
     <View>
       <ScrollView style={styles.ScrollView}>     
-          <InputField input = {"First Name"} textType = {"text"}
-          />  
-          <InputField input = {"Last Name"} textType = {"text"}
-          />  
-          <InputField input = {"Email Address"} textType = {"email"}
-          />  
-          <InputField input = {"Major"} textType = {"text"}
-          />  
-          <InputField input = {"GPA"} textType = {"decimal"}
-          />  
-          <InputField input = {"Graduation Date"} textType = {"text"}
-          />  
-          <InputField input = {"Position Type"} textType = {"text"}
-          />  
-          <InputField input = {"Sponsership Needed"} textType = {"text"}
-          />  
-          <InputField input = {"Are you gay?"} textType = {"text"}
-          />  
+          <View style = {styles.inputField}>     
+            <Text style = {styles.inputFieldText}> {"First Name"}{"\n"}</Text>
+            <TextInput style={styles.textInput}  inputMode={"text"}/>
+          </View>
+          <View style = {styles.inputField}>     
+            <Text style = {styles.inputFieldText}> {"Last Name"}{"\n"}</Text>
+            <TextInput style={styles.textInput}  inputMode={"text"}/>
+          </View> 
+          <View style = {styles.inputField}>     
+            <Text style = {styles.inputFieldText}> {"Email Adress"}{"\n"}</Text>
+            <TextInput style={styles.textInput}  inputMode={"email"}/>
+          </View> 
+          <View style = {styles.inputField}>     
+            <Text style = {styles.inputFieldText}> {"Major"}{"\n"}</Text>
+            <TextInput style={styles.textInput}  inputMode={"text"}/>
+          </View> 
+          <View style = {styles.inputField}>     
+            <Text style = {styles.inputFieldText}> {"GPA"}{"\n"}</Text>
+            <TextInput style={styles.textInput}  inputMode={"decimal"}/>
+          </View> 
+          <View style = {styles.inputField}>     
+            <Text style = {styles.inputFieldText}> {"Graduation Date"}{"\n"}</Text>
+            <TextInput style={styles.textInput}  inputMode={"text"}/>
+          </View> 
+          <View style = {styles.inputField}>     
+            <Text style = {styles.inputFieldText}> {"Position Type"}{"\n"}</Text>
+            <TextInput style={styles.textInput}  inputMode={"text"}/>
+          </View>   
+          <View style = {styles.inputField}>     
+            <Text style = {styles.inputFieldText}> {"Sponsership Needed"}{"\n"}</Text>
+            <TextInput style={styles.textInput}  inputMode={"text"}/>
+            </View> 
           <Button 
             onPress={() => { 
               // get values from input fields and add to data object
