@@ -9,7 +9,7 @@ const AddCandidateScreen = ({ navigation }) => {
           onPress={() => { navigation.navigate('UploadResume') }}
           title={"Upload Resume"}
         />
-      <Button
+       <Button
           onPress={() => { navigation.navigate('CandidateForm') }}
           title={"Skip"}
         />

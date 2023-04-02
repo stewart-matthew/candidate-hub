@@ -20,6 +20,22 @@ const styles = StyleSheet.create({
         minWidth: '90%',
         alignItems: 'center'
     },
+    inputField: {
+        backgroundColor: Colors.InputField,
+        borderStyle: 'solid',
+        borderWidth: '2px',
+        borderColor: '#D2D2D2',
+        borderRadius: '8px',
+        margin: 10,
+        padding: 15,
+        paddingVertical: 20,
+        minWidth: '90%',
+    },
+    inputFieldText: {
+        fontSize: 20,
+        textAlign: 'left',
+        margin: 0
+    },
     buttonText: {
         fontSize: 25,
         color: '#fff'

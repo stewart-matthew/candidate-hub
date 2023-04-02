@@ -1,4 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
+import {DefaultTheme} from '@react-navigation/native';
 import React from 'react';
 import { Image, Text, View } from 'react-native';
 
@@ -17,7 +18,8 @@ import { styles } from './src/styles/styles';
 import * as Colors from './src/styles/colors';
 
 const Stack = createNativeStackNavigator();
-
+const NavTheme = DefaultTheme;
+NavTheme.colors.background = '#fff';
 export default function App() {
   return (
     <View style={styles.container}>
