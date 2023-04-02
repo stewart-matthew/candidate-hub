@@ -4,7 +4,6 @@ const router = express.Router();
 
 // Load Candidate model
 const Candidate = require('../../models/Candidate');
-const CandidateNoResume = require('../../models/CandidateNoResume');
 
 // @route GET api/candidates/test
 // @description tests candidates route
