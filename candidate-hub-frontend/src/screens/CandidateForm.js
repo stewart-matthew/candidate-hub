@@ -1,4 +1,4 @@
-import { Text, View, StyleSheet, ScrollView, TextInput, React } from 'react-native';
+import { Text, View, StyleSheet, ScrollView, TextInput, React, KeyboardAvoidingView, TouchableWithoutFeedback, Keyboard, Platform } from 'react-native';
 import Button from '../components/Button';
 import InputField from '../components/InputField';
 import { styles } from '../styles/styles';
@@ -8,7 +8,11 @@ const CandidateFormScreen = ({ route, navigation }) => {
  // const [text, onChangeText] = React.useState('This is actual text');
 
   return (
-    <View>
+    <KeyboardAvoidingView 
+      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+      disabled
+      keyboardVerticalOffset={135}
+      >
       <ScrollView style={styles.ScrollView}>     
       <View style = {styles.inputField}>     
             <Text style = {styles.inputFieldText}> {"First Name"}{"\n"}</Text>
@@ -56,7 +60,7 @@ const CandidateFormScreen = ({ route, navigation }) => {
             title={"Submit"}
           />
       </ScrollView>
-    </View>
+    </KeyboardAvoidingView>
   )
 }
 
