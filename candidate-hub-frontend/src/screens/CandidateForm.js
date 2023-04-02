@@ -96,7 +96,7 @@ const CandidateFormScreen = ({ route, navigation }) => {
               data.event = 'UA Innovate 2023';
               data.starred = false;
               //console.log(data)
-              if (uri) data.resumeURI = uri;
+              if (uri) data.resume = uri;
               // add data to api request
               // if success go to confirmation screen:
               navigation.navigate('ConfirmAddCandidate', data) 

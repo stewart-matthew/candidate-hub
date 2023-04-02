@@ -38,7 +38,8 @@ const CandidateSchema = new mongoose.Schema({
     required: true
   },
   resume: {
-    data: Buffer
+    data: Buffer,
+    contentType: String
   },
   event: {
     type: String,

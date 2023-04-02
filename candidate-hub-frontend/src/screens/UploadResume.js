@@ -19,7 +19,7 @@ const UploadResumeScreen = ({ navigation }) => {
     if (hasPhotoTaken) return;
     hasPhotoTaken = true;
     const photo = await ref.current.takePictureAsync()
-    console.debug(photo)
+    //console.debug(photo)
     hasPhotoTaken = false
     navigation.navigate('ConfirmPhoto', photo.uri)
   }

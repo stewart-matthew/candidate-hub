@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+// const fetch = require('node-fetch');
 
 // Load Candidate model
 const Candidate = require('../../models/Candidate');
@@ -43,9 +44,24 @@ router.get('/:id', (req, res) => {
 // @description add/save candidate
 // @access Public
 router.post('/', (req, res) => {
-  Candidate.create(req.body)
+  // if (req.body.resume) {
+  //   fetch(req.body.resume)
+  //   .then((response) => {
+  //     response.blob()
+  //     .then((outputBlob) => {
+  //       req.body.resume = outputBlob;
+  //       Candidate.create(req.body)
+  //       .then(candidate => res.json({ msg: 'Candidate added successfully with resume' }))
+  //       .catch(err => res.status(400).json({ error: 'Unable to add this candidate and resume' }));
+  //     });
+  //   })
+  // }
+
+  // else {
+    Candidate.create(req.body)
     .then(candidate => res.json({ msg: 'Candidate added successfully' }))
     .catch(err => res.status(400).json({ error: 'Unable to add this candidate' }));
+  // }
 });
 
 // @route PUT api/candidates/:id
