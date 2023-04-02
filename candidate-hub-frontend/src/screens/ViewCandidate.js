@@ -1,4 +1,4 @@
-import { Image, Pressable, View, Text, SafeAreaView, FlatList } from 'react-native';
+import { Image, Pressable, View, Text, SafeAreaView, FlatList, ImageBase } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import Button from '../components/Button';
 import { useState, useEffect } from 'react';
@@ -9,20 +9,6 @@ import {styles} from '../styles/styles';
 const ViewCandidateScreen = ({ route, navigation }) => {
   const userData = route.params;
   const [isStarred, setIsStarred] = useState(userData.starred)
-  // const [updateStar, setUpdateStar] = useState(false);
-
-  // useEffect(() => {
-  //   axios
-  //     .put(baseURL + "/" + userData._id, {
-  //       starred: !userData.starred //
-  //     })
-  //     .then((res) => {
-  //       setIsStarred(!isStarred)
-  //     })
-  //     .catch((err) => {
-  //       console.log('Error from ViewCandidate');
-  //     });
-  // }, [updateStar]);
 
   toggleButtonState = () => {
     setIsStarred(!isStarred)
@@ -83,6 +69,11 @@ const ViewCandidateScreen = ({ route, navigation }) => {
         <Ionicons style={styles.star2}name={isStarred ? 'ios-star' : 'ios-star-outline'} size={50} />
         </View>
       </Pressable>
+      <Image style={{
+        width: 360,
+        height: 360
+       }}
+       resizeMode={"contain"} source={{uri: 'data:image/png;base64,' + userData.resume}}/>
       
     </SafeAreaView>
   )
