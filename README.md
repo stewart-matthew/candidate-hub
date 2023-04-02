@@ -6,8 +6,8 @@ CandidateHub is a full stack three-tiered mobile application that seamlessly int
 - **Backend**: [Express](https://www.npmjs.com/package/express)/[Node.js](https://nodejs.org/en)
 - **Frontend**: [React-Native](https://reactnative.dev)
 ## Using CandidateHub
-Make sure to install all dependencies by running `npm i` in the root directory.
-To run the backend server, navigate to `candidate-hub-backend` and run `npm start`.
-To run the frontend application, navigate to `candidate-hub-frontend` and run `expo start`.
-Make sure that `ip` of `src/config/config.js` is set to the IP address of the Node server.
-The application can be simulated on the Expo Go app on iPhone.
+1. Make sure to install all dependencies by running `npm i` in the root directory.
+2. To run the backend server, navigate to `candidate-hub-backend` and run `npm start`.
+3. To run the frontend application, navigate to `candidate-hub-frontend` and run `expo start`.
+4. Make sure that `ip` of `src/config/config.js` is set to the IP address of the Node server.
+5. The application can be simulated on the Expo Go app on iPhone.
