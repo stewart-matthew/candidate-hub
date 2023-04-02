@@ -13,6 +13,7 @@ import AddCandidateScreen from './src/screens/AddCandidate';
 import BrowseCandidatesScreen from './src/screens/BrowseCandidates';
 import UploadResumeScreen from './src/screens/UploadResume';
 import CandidateFormScreen from './src/screens/CandidateForm';
+import ConfirmPhotoScreen from './src/screens/ConfirmPhoto';
 
 import { styles } from './src/styles/styles';
 import * as Colors from './src/styles/colors';
@@ -38,6 +39,7 @@ export default function App() {
           <Stack.Screen name="BrowseCandidates" component={BrowseCandidatesScreen} />
           <Stack.Screen name="UploadResume" component={UploadResumeScreen} />
           <Stack.Screen name="CandidateForm" component={CandidateFormScreen} />
+          <Stack.Screen name="ConfirmPhoto" component={ConfirmPhotoScreen} />
         </Stack.Navigator>
       </NavigationContainer>
 
