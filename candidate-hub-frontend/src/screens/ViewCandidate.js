@@ -9,6 +9,18 @@ import {styles} from '../styles/styles';
 const ViewCandidateScreen = ({ route, navigation }) => {
   const userData = route.params;
   const [isStarred, setIsStarred] = useState(userData.starred)
+  const [resume, setResume] = useState('')
+
+  useEffect(() => {
+    axios
+      .get(baseURL + "/" + userData._id)
+      .then((res) => {
+        setResume(res.data.resume);
+      })
+      .catch((err) => {
+        console.log('Error from BrowseCandidates' + err);
+      });
+  }, []);
 
   toggleButtonState = () => {
     setIsStarred(!isStarred)
@@ -73,7 +85,7 @@ const ViewCandidateScreen = ({ route, navigation }) => {
         width: 360,
         height: 360
        }}
-       resizeMode={"contain"} source={{uri: 'data:image/png;base64,' + userData.resume}}/>
+       resizeMode={"contain"} source={{uri: 'data:image/png;base64,' + resume}}/>
       
     </SafeAreaView>
   )
