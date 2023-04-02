@@ -59,20 +59,19 @@ const CandidateFormScreen = ({ route, navigation }) => {
           </View> 
           <View style = {styles.inputField}>     
             <Text style = {styles.inputFieldText}> {"Position Type"}{"\n"}</Text>
-            <View>
-                <Pressable style={() => [{ backgroundColor: positionType === 'Internship' ? Colors.ON_PRESS_COLOR : Colors.BUTTON_COLOR }, styles.button ]} onPress={() => setPositionType('Internship')}>
-                    <Text style={styles.buttonText}>Internship</Text>
+            <View style={{ flexDirection:"row", minWidth: "100%"}}>
+            <Pressable style={() => [positionType === 'Internship' ? styles.buttonSelected : styles.buttonUnselected ]} onPress={() => setPositionType('Internship')}>
+                    <Text style={ [positionType === 'Internship' ? styles.buttonText : styles.buttonTextUnselected ]} >Internship</Text>
                 </Pressable>
-            </View>
-            <View>
-                <Pressable style={() => [{ backgroundColor: positionType === 'Full Time' ? Colors.ON_PRESS_COLOR : Colors.BUTTON_COLOR }, styles.button ]} onPress={() => setPositionType('Full Time')}>
-                    <Text style={styles.buttonText}>Full Time</Text>
+                <Pressable style={() => [positionType === 'Full Time' ? styles.buttonSelected : styles.buttonUnselected ]} onPress={() => setPositionType('Full Time')}>
+                    <Text style={ [positionType === 'Full Time' ? styles.buttonText : styles.buttonTextUnselected ]} >Full Time</Text>
                 </Pressable>
             </View>
           </View>   
-          <View style = {styles.inputField}>     
-            <Text style = {styles.inputFieldText}> {"Sponsorship Needed"}{"\n"}</Text>
+          <View style = {styles.inputField}>
             <CheckBox
+              title="Sponsorship Needed"
+              textStyle={styles.sponsorship}
               checked={sponsorshipNeeded}
               onPress={() => setSponsorshipNeeded(!sponsorshipNeeded)}
             />

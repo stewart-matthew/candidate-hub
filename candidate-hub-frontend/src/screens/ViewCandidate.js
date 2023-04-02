@@ -4,6 +4,7 @@ import Button from '../components/Button';
 import { useState, useEffect } from 'react';
 import axios from 'axios'
 import { baseURL } from '../config/config/';
+import {styles} from '../styles/styles';
 
 const ViewCandidateScreen = ({ route, navigation }) => {
   const userData = route.params;
@@ -45,13 +46,16 @@ const ViewCandidateScreen = ({ route, navigation }) => {
   }
 
   return (
+    
     <SafeAreaView style={{ flex: 1 }}>
-      <View style={{flexDirection: 'row', textAlign: 'center', padding: 5}}>
+ 
       <Pressable onPress={this.toggleButtonState}>
-        <Ionicons name={isStarred ? 'ios-star' : 'ios-star-outline'} size={50} />
+        <Ionicons style={styles.star2}name={isStarred ? 'ios-star' : 'ios-star-outline'} size={50} />
       </Pressable>
-      <Text style={{paddingLeft: 5, paddingTop: 5, fontSize: 25, fontWeight: 'bold'}}>Information</Text>
+      <View style={{flexDirection: 'row', textAlign: 'center', padding: 5}}>
+      <Text style={{paddingLeft: 15, paddingTop: 10, fontSize: 30, fontWeight: 'bold'}}>Information</Text>
       </View>
+      
       <View style={{ padding: 20 }}>
         <FlatList
           data={[
@@ -74,6 +78,12 @@ const ViewCandidateScreen = ({ route, navigation }) => {
           }}
         />
       </View>
+      <Pressable onPress={this.toggleButtonState}>
+      <View style={{flexDirection: 'row', justifyContent: 'flex-end'}}>
+        <Ionicons style={styles.star2}name={isStarred ? 'ios-star' : 'ios-star-outline'} size={50} />
+        </View>
+      </Pressable>
+      
     </SafeAreaView>
   )
 }
