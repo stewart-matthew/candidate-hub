@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios'
 import { baseURL } from '../config/config/';
 import {styles} from '../styles/styles';
+import { ScrollView } from 'react-native';
 
 const ViewCandidateScreen = ({ route, navigation }) => {
   const userData = route.params;
@@ -45,47 +46,53 @@ const ViewCandidateScreen = ({ route, navigation }) => {
 
   return (
     
-    <SafeAreaView style={{ flex: 1 }}>
- 
-      <Pressable onPress={this.toggleButtonState}>
-        <Ionicons style={styles.star2}name={isStarred ? 'ios-star' : 'ios-star-outline'} size={50} />
-      </Pressable>
-      <View style={{flexDirection: 'row', textAlign: 'center', padding: 5}}>
-      <Text style={{paddingLeft: 15, paddingTop: 10, fontSize: 30, fontWeight: 'bold'}}>Information</Text>
-      </View>
-      
-      <View style={{ padding: 20 }}>
-        <FlatList
-          data={[
-            { key: 'First Name', value: userData.firstName },
-            { key: 'Last Name', value: userData.lastName },
-            { key: 'Email', value: userData.email },
-            { key: 'Major', value: userData.major },
-            { key: 'Degree', value: userData.degree },
-            { key: 'GPA', value: userData.gpa },
-            { key: 'Graduation Date', value: processGraduationDate(userData.graduationDate) },
-            { key: 'Position Type', value: userData.positionType },
-            { key: 'Sponorship Needed', value: userData.sponsorshipNeeded ? 'Yes' : 'No' },
-          ]}
-          renderItem={({ item }) => {
-            return (
-              <View style={{ marginBottom: 10, flexDirection: 'row', flexShrink: 1 }}>
-                <Text style={{ fontSize: 18, fontWeight: 'bold' }}>{item.key}</Text><Text style={{fontSize: 18}}>{": " + item.value}</Text>
-              </View>
-            );
-          }}
-        />
+    <SafeAreaView>
+       <View style={{flexDirection: 'row', textAlign: 'center', padding: 5}}>
+      <Text style={{paddingLeft: 15, paddingTop: 15, fontSize: 35, fontWeight: 'bold'}}>Information</Text>
       </View>
       <Pressable onPress={this.toggleButtonState}>
-      <View style={{flexDirection: 'row', justifyContent: 'flex-end'}}>
+      <View style={{
+        alignSelf: 'flex-end',position: 'absolute', marginTop: -35, right: 35}}>
         <Ionicons style={styles.star2}name={isStarred ? 'ios-star' : 'ios-star-outline'} size={50} />
         </View>
       </Pressable>
+      <ScrollView>
+        <View style={{ padding: 10, margin: 10, marginBottom: -2, flexDirection: 'row'}}>
+                <Text style={{ fontSize: 18, fontWeight: 'bold' }}>{'First Name'}</Text><Text style={{fontSize: 18}}>{": " + userData.firstName}</Text>
+        </View>        
+        <View style={{ padding: 10, margin: 10, marginBottom: -2, flexDirection: 'row'}}>
+                <Text style={{ fontSize: 18, fontWeight: 'bold' }}>{'Last Name'}</Text><Text style={{fontSize: 18}}>{": " + userData.lastName}</Text>
+        </View>        
+        <View style={{ padding: 10, margin: 10, marginBottom: -2, flexDirection: 'row'}}> 
+                <Text style={{ fontSize: 18, fontWeight: 'bold' }}>{'Email'}</Text><Text style={{fontSize: 18}}>{": " + userData.email}</Text>
+        </View>        
+        <View style={{ padding: 10, margin: 10, marginBottom: -2, flexDirection: 'row'}}> 
+                <Text style={{ fontSize: 18, fontWeight: 'bold' }}>{'Major'}</Text><Text style={{fontSize: 18}}>{": " + userData.major}</Text>
+        </View>        
+        <View style={{ padding: 10, margin: 10, marginBottom: -2, flexDirection: 'row'}}> 
+                <Text style={{ fontSize: 18, fontWeight: 'bold' }}>{'Degree'}</Text><Text style={{fontSize: 18}}>{": " + userData.degree}</Text>
+        </View>        
+        <View style={{ padding: 10, margin: 10, marginBottom: -2, flexDirection: 'row'}}> 
+                <Text style={{ fontSize: 18, fontWeight: 'bold' }}>{'GPA'}</Text><Text style={{fontSize: 18}}>{": " + userData.gpa}</Text>
+        </View>        
+        <View style={{ padding: 10, margin: 10, marginBottom: -2, flexDirection: 'row'}}> 
+                <Text style={{ fontSize: 18, fontWeight: 'bold' }}>{'Graduation Date'}</Text><Text style={{fontSize: 18}}>{": " + processGraduationDate(userData.graduationDate)}</Text>
+        </View>        
+        <View style={{ padding: 10, margin: 10, marginBottom: -2, flexDirection: 'row'}}> 
+                <Text style={{ fontSize: 18, fontWeight: 'bold' }}>{'Position Type'}</Text><Text style={{fontSize: 18}}>{": " + userData.positionType}</Text>
+        </View>        
+        <View style={{ padding: 10, margin: 10, marginBottom: -2, flexDirection: 'row'}}> 
+                <Text style={{ fontSize: 18, fontWeight: 'bold' }}>{'Sponsorship Needed'}</Text><Text style={{fontSize: 18}}>{": " + (userData.sponsorshipNeeded ? 'Yes' : 'No')}</Text>
+        </View>        
+        <View style={{ padding: 10, margin: 10, marginBottom: -2, flexDirection: 'row'}}> 
+        </View>
       <Image style={{
         width: 360,
-        height: 360
+        height: 360,
+        marginBottom: 75
        }}
-       resizeMode={"contain"} source={{uri: 'data:image/png;base64,' + resume}}/>
+       resizeMode={"contain"} source={{uri: 'data:image/png;base64,' + resume}}></Image>
+       </ScrollView>
       
     </SafeAreaView>
   )

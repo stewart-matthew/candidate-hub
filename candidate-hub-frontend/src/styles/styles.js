@@ -71,9 +71,6 @@ const styles = StyleSheet.create({
     },
     star2: {
         color: Colors.HEADER_COLOR,
-        position: 'absolute',
-        bottom:305,
-        right: 20
     },
     buttonSelected: {
         backgroundColor: '#3b5cc8',
