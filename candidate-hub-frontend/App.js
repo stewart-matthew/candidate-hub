@@ -22,7 +22,7 @@ import * as Colors from './src/styles/colors';
 
 const Stack = createNativeStackNavigator();
 const NavTheme = DefaultTheme;
-NavTheme.colors.background = '#fff';
+NavTheme.colors.background = '#f5f6fa';
 export default function App() {
   return (
     <View style={styles.container}>
