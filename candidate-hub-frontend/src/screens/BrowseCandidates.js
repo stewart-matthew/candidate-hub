@@ -1,4 +1,5 @@
 import { ActivityIndicator, Text, View } from 'react-native';
+import CandidateBox from '../components/CandidateBox';
 import Button from '../components/Button';
 import axios from 'axios'
 import { baseURL } from '../config/config/';
@@ -22,7 +23,8 @@ const BrowseCandidatesScreen = ({ navigation }) => {
   const candidateList =
     candidates.length === 0
       ? 'there is no candidate!'
-      : candidates.map((candidate) => <Button title={candidate.firstName} key={candidate._id}/>);
+      : candidates.map((candidate) => <CandidateBox firstName={candidate.firstName} lastName={candidate.lastName}
+        major={candidate.major} degree={candidate.degree} starred={candidate.starred} key={candidate._id}/>);
 
   return (
     <View>

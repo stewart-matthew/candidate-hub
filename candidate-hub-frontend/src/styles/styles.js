@@ -20,6 +20,19 @@ const styles = StyleSheet.create({
         minWidth: '90%',
         alignItems: 'center'
     },
+    candidateBox: {
+        borderStyle: 'solid',
+        borderWidth: '2px',
+        borderColor: '#fff',
+        borderRadius: '8px',
+        marginTop: 10,
+        padding: 10,
+        minWidth: '90%',
+    },
+    candidateBoxText: {
+        fontSize: 16,
+        color: '#fff'
+    },
     inputField: {
         backgroundColor: Colors.InputField,
         borderStyle: 'solid',
