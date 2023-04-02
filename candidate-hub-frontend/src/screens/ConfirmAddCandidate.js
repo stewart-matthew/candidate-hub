@@ -1,4 +1,4 @@
-import { Image, View } from 'react-native';
+import { Image, View, Text } from 'react-native';
 import { useEffect } from 'react';
 import axios from 'axios';
 import { baseURL } from '../config/config/';
@@ -41,9 +41,10 @@ const ConfirmAddCandidateScreen = ({ route, navigation }) => {
 
   return (
     <View>
+      <View style={{alignItems: 'center', padding: '4%'}}><Text style={{fontWeight: 'bold', fontSize: 20}}>Candidate Added Successfully!</Text></View>
       <Button
           onPress={() => { navigation.navigate('Home') }}
-          title={"It worked now lets go home"}
+          title={"Return to Home Page"}
         />
     </View>
   )
