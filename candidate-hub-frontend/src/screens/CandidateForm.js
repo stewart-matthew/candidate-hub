@@ -10,7 +10,7 @@ const CandidateFormScreen = ({ route, navigation }) => {
   return (
     <View>
       <ScrollView style={styles.ScrollView}>     
-          <View style = {styles.inputField}>     
+      <View style = {styles.inputField}>     
             <Text style = {styles.inputFieldText}> {"First Name"}{"\n"}</Text>
             <TextInput style={styles.textInput}  inputMode={"text"}/>
           </View>
@@ -41,11 +41,13 @@ const CandidateFormScreen = ({ route, navigation }) => {
           <View style = {styles.inputField}>     
             <Text style = {styles.inputFieldText}> {"Sponsership Needed"}{"\n"}</Text>
             <TextInput style={styles.textInput}  inputMode={"text"}/>
-            </View> 
+            </View>
           <Button 
             onPress={() => { 
               // get values from input fields and add to data object
-              let data = {}
+              let data = {
+                
+              }
               data.resumeURI = uri;
               // add data to api request
               // if success go to confirmation screen:
