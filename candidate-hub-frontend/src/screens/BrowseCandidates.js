@@ -8,7 +8,18 @@ import { FlatList } from 'react-native-gesture-handler';
 
 const BrowseCandidatesScreen = ({ navigation }) => {
   const [candidates, setCandidates] = useState([]);
-
+  var i = 0;
+  navigation.addListener('focus', () => {
+    if (i === 0) return i++;
+    axios
+      .get(baseURL)
+      .then((res) => {
+        setCandidates(res.data);
+      })
+      .catch((err) => {
+        console.log('Error from BrowseCandidates' + err);
+      });
+  })
   useEffect(() => {
     axios
       .get(baseURL)
