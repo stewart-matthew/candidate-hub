@@ -1,4 +1,5 @@
 import { Pressable, Text, View, ScrollView, TextInput, React, KeyboardAvoidingView, Platform } from 'react-native';
+import { useHeaderHeight } from '@react-navigation/elements'
 import { CheckBox } from 'react-native-elements'
 import Button from '../components/Button';
 import { styles } from '../styles/styles';
@@ -8,6 +9,7 @@ import * as Colors from '../styles/colors';
 const CandidateFormScreen = ({ route, navigation }) => {
   const uri = route.params;
 
+  const height = useHeaderHeight()
   const isDate = (date) => {
     return date.match(/^(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d$/)
   }
@@ -20,13 +22,14 @@ const CandidateFormScreen = ({ route, navigation }) => {
   const [gpa, setGPA] = useState('');
   const [graduationDate, setGraduationDate] = useState('');
   const [positionType, setPositionType] = useState('');
-  const [sponsorshipNeeded, setSponsorshipNeeded] = useState('');
+  const [sponsorshipNeeded, setSponsorshipNeeded] = useState(false);
 
   return (
     <KeyboardAvoidingView 
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      disabled
-      keyboardVerticalOffset={135}
+      behavior={(Platform.OS === 'ios') ? 'padding' : null}
+      enabled
+      keyboardVerticalOffset={height}
+      
       >
       <ScrollView style={styles.ScrollView}>     
       <View style = {styles.inputField}>     
@@ -96,8 +99,6 @@ const CandidateFormScreen = ({ route, navigation }) => {
               data.starred = false;
               //console.log(data)
               if (uri) data.resume = uri;
-              // add data to api request
-              // if success go to confirmation screen:
               navigation.navigate('ConfirmAddCandidate', data) 
             }}
             title={"Submit"}

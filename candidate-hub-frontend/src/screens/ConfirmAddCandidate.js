@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import axios from 'axios';
 import { baseURL } from '../config/config/';
 import fetch from 'node-fetch'
+import * as FileSystem from 'expo-file-system'
 
 import Button from '../components/Button';
 
@@ -11,18 +12,20 @@ const ConfirmAddCandidateScreen = ({ route, navigation }) => {
 
   useEffect(() => {
     if (data.resume) {
-      fetch(data.resume)
-      .then((response) => response.blob()
-        .then((outputBlob) => {
-          data.resume = outputBlob;
+      console.log("data.resume is " + data.resume);
+      FileSystem.readAsStringAsync(data.resume, { encoding: 'base64' }).then(output => {
+        data.resume = output;
+        //console.log(data.sponsorshipNeeded)
           axios.post(baseURL, data)
           .then((res) => {
+            console.log('success?')
           })
           .catch((err) => {
-            console.log('Error from ConfirmAddCandidate' + err);
+            console.log('Error from ConfirmAddCandidate with resume: ' + err);
           });
-        }))
-        .catch((e) => console.log(e))
+      }).catch((err) => {
+        console.log('Error from FileSystem: ' + err.replace(/'.+?'/g))
+      });
     }
 
     else {
