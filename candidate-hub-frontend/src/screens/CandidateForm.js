@@ -1,11 +1,16 @@
-import { Text, View, StyleSheet, ScrollView, TextInput, React, KeyboardAvoidingView, TouchableWithoutFeedback, Keyboard, Platform } from 'react-native';
+import { Pressable, Text, View, ScrollView, TextInput, React, KeyboardAvoidingView, Platform } from 'react-native';
+import { CheckBox } from 'react-native-elements'
 import Button from '../components/Button';
-import InputField from '../components/InputField';
 import { styles } from '../styles/styles';
 import { useState } from 'react';
+import * as Colors from '../styles/colors';
 
 const CandidateFormScreen = ({ route, navigation }) => {
   const uri = route.params;
+
+  const isDate = (date) => {
+    return date.match(/^(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d$/)
+  }
 
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
@@ -49,19 +54,32 @@ const CandidateFormScreen = ({ route, navigation }) => {
             <TextInput style={styles.textInput}  inputMode={"decimal"}  onChangeText={(txt) => setGPA(txt)}/>
           </View> 
           <View style = {styles.inputField}>     
-            <Text style = {styles.inputFieldText}> {"Graduation Date"}{"\n"}</Text>
+            <Text style = {styles.inputFieldText}> {"Graduation Date (mm/dd/yyyy)"}{"\n"}</Text>
             <TextInput style={styles.textInput}  inputMode={"text"} onChangeText={(txt) => setGraduationDate(txt)}/>
           </View> 
           <View style = {styles.inputField}>     
             <Text style = {styles.inputFieldText}> {"Position Type"}{"\n"}</Text>
-            <TextInput style={styles.textInput}  inputMode={"text"} onChangeText={(txt) => setPositionType(txt)}/>
+            <View>
+                <Pressable style={() => [{ backgroundColor: positionType === 'Internship' ? Colors.ON_PRESS_COLOR : Colors.BUTTON_COLOR }, styles.button ]} onPress={() => setPositionType('Internship')}>
+                    <Text style={styles.buttonText}>Internship</Text>
+                </Pressable>
+            </View>
+            <View>
+                <Pressable style={() => [{ backgroundColor: positionType === 'Full Time' ? Colors.ON_PRESS_COLOR : Colors.BUTTON_COLOR }, styles.button ]} onPress={() => setPositionType('Full Time')}>
+                    <Text style={styles.buttonText}>Full Time</Text>
+                </Pressable>
+            </View>
           </View>   
           <View style = {styles.inputField}>     
             <Text style = {styles.inputFieldText}> {"Sponsorship Needed"}{"\n"}</Text>
-            <TextInput style={styles.textInput}  inputMode={"text"} onChangeText={(txt) => setSponsorshipNeeded(txt)}/>
+            <CheckBox
+              checked={sponsorshipNeeded}
+              onPress={() => setSponsorshipNeeded(!sponsorshipNeeded)}
+            />
             </View>
           <Button 
             onPress={() => { 
+              //console.log(positionType)
               if (!firstName) return alert('The "First Name" field is required.')
               if (!lastName) return alert('The "Last Name" field is required.')
               if (!email) return alert('The "Email Address" field is required.')
@@ -72,16 +90,13 @@ const CandidateFormScreen = ({ route, navigation }) => {
               if (!positionType) return alert('The "Position Type" field is required.')
               let data = { firstName, lastName, email, major, degree, gpa, graduationDate, positionType, sponsorshipNeeded };
               data.gpa = Number(gpa);
-              if (sponsorshipNeeded) {
-                data.sponsorshipNeeded = true;
-              } else {
-                data.sponsorshipNeeded = false;
-              }
+              if (data.gpa > 5 || data.gpa < 0) return alert('Invalid GPA')
+              if (!isDate(data.graduationDate)) return alert('Invalid Date')
               data.uploadDate = new Date().toString();
               data.event = 'UA Innovate 2023';
               data.starred = false;
+              //console.log(data)
               if (uri) data.resumeURI = uri;
-              console.log(data)
               // add data to api request
               // if success go to confirmation screen:
               navigation.navigate('ConfirmAddCandidate', data) 
