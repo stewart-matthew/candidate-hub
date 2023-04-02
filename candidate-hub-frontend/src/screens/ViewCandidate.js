@@ -1,11 +1,41 @@
 import { Image, Pressable, View, Text, SafeAreaView, FlatList } from 'react-native';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import Button from '../components/Button';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios'
+import { baseURL } from '../config/config/';
 
 const ViewCandidateScreen = ({ route, navigation }) => {
   const userData = route.params;
   const [isStarred, setIsStarred] = useState(userData.starred)
+  // const [updateStar, setUpdateStar] = useState(false);
+
+  // useEffect(() => {
+  //   axios
+  //     .put(baseURL + "/" + userData._id, {
+  //       starred: !userData.starred //
+  //     })
+  //     .then((res) => {
+  //       setIsStarred(!isStarred)
+  //     })
+  //     .catch((err) => {
+  //       console.log('Error from ViewCandidate');
+  //     });
+  // }, [updateStar]);
+
+  toggleButtonState = () => {
+    setIsStarred(!isStarred)
+    axios
+      .put(baseURL + "/" + userData._id, {
+        starred: !userData.starred
+      })
+      .then((res) => {
+      })
+      .catch((err) => {
+        console.log('Error from ViewCandidate');
+    });
+  };
+
   const processGraduationDate = (d) => {
     if (d.match(/^\d{4}-\d{1,2}-.+$/)) {
         const split = d.split('-');
@@ -13,14 +43,12 @@ const ViewCandidateScreen = ({ route, navigation }) => {
     }
     return d;
   }
+
   return (
     <SafeAreaView style={{ flex: 1 }}>
       <View style={{flexDirection: 'row', textAlign: 'center', padding: 5}}>
-      <Pressable onPress={() => {
-        // api call and then do this:
-        setIsStarred(!isStarred)
-      }}>
-        <Ionicons name={isStarred ? 'ios-star' : 'ios-star-outline'} size="40" />
+      <Pressable onPress={this.toggleButtonState}>
+        <Ionicons name={isStarred ? 'ios-star' : 'ios-star-outline'} size={50} />
       </Pressable>
       <Text style={{paddingLeft: 5, paddingTop: 5, fontSize: 25, fontWeight: 'bold'}}>Information</Text>
       </View>
