@@ -4,12 +4,10 @@ import { CheckBox } from 'react-native-elements'
 import Button from '../components/Button';
 import { styles } from '../styles/styles';
 import { useState } from 'react';
-import * as Colors from '../styles/colors';
 
 const CandidateFormScreen = ({ route, navigation }) => {
   const uri = route.params;
 
-  const height = useHeaderHeight()
   const isDate = (date) => {
     return date.match(/^(0[1-9]|1[012])[- /.](0[1-9]|[12][0-9]|3[01])[- /.](19|20)\d\d$/)
   }

@@ -1,10 +1,10 @@
-import { ActivityIndicator, Text, View } from 'react-native';
+import { ScrollView, ActivityIndicator, Text, View } from 'react-native';
 import CandidateBox from '../components/CandidateBox';
 import Button from '../components/Button';
 import axios from 'axios'
 import { baseURL } from '../config/config/';
 import { useState, useEffect } from 'react';
-import { FlatList } from 'react-native-gesture-handler';
+import { styles } from '../styles/styles';
 
 const BrowseCandidatesScreen = ({ navigation }) => {
   const [candidates, setCandidates] = useState([]);
@@ -43,9 +43,9 @@ const BrowseCandidatesScreen = ({ navigation }) => {
         major={candidate.major} degree={candidate.degree} starred={candidate.starred} key={candidate._id}/>);
 
   return (
-    <View>
+    <ScrollView style={styles.ScrollView}>
       {candidateList}
-    </View>
+    </ScrollView>
   );
 }
 
