@@ -55,6 +55,10 @@ const styles = StyleSheet.create({
         fontSize: 25,
         color: '#fff'
     },
+    buttonTextUnselected: {
+        fontSize: 25,
+        color: '#000000'
+    },
     container: {
         flex: 1
     },
@@ -71,6 +75,35 @@ const styles = StyleSheet.create({
         bottom:305,
         right: 20
     },
+    buttonSelected: {
+        backgroundColor: '#3b5cc8',
+        borderStyle: 'solid',
+        borderWidth: '2px',
+        borderColor: '#4f69ce',
+        borderRadius: '8px',
+        marginHorizontal: 5,
+        padding: 5,
+        //minWidth: '30%',
+        flex: 1,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    buttonUnselected: {
+        backgroundColor: '#f5f6fa',
+        color: '#000000',
+        borderStyle: 'solid',
+        borderWidth: '2px',
+        borderColor: '#d1d1d1',
+        borderRadius: '8px',
+        marginHorizontal: 5,
+        padding: 5,
+        //minWidth: '0%',
+        flex: 1,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
     textInput: {
           borderColor: Colors.InputField,
           borderBottomColor: '#d1d1d1',
@@ -81,7 +114,15 @@ const styles = StyleSheet.create({
           borderWidth: 1,
           fontSize: 15,
           padding: 0
-        }
+        },
+    sponsorship: {
+        color: '#000000',
+        fontWeight: '400',
+        fontSize: 20,
+        flex: 1,
+        textAlign: 'right'
+
+    },
       });
 
 export { styles };
