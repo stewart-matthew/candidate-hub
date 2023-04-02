@@ -24,7 +24,7 @@ const styles = StyleSheet.create({
         backgroundColor: Colors.InputField,
         borderStyle: 'solid',
         borderWidth: '2px',
-        borderColor: '#D2D2D2',
+        borderColor: '#d4dcfc',
         borderRadius: '8px',
         margin: 10,
         padding: 15,

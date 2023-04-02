@@ -20,8 +20,8 @@ const TextInputExample = (props) => {
 const styles = StyleSheet.create({
   input: {
     borderColor: Colors.InputField,
-    borderBottomColor: '#B2B2B2',
-    borderBottomWidth: 1,
+    borderBottomColor: '#d1d1d1',
+    borderBottomWidth: 2,
     height: 40,
     minWidth: '100%',
     margin: 5,
