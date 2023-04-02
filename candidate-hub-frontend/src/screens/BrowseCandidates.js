@@ -22,8 +22,8 @@ const BrowseCandidatesScreen = ({ navigation }) => {
 
   const candidateList =
     candidates.length === 0
-      ? 'there is no candidate!'
-      : candidates.map((candidate) => <CandidateBox firstName={candidate.firstName} lastName={candidate.lastName}
+      ? 'There are no candidates!'
+      : candidates.map((candidate) => <CandidateBox onPress={() => { navigation.navigate('ViewCandidate', candidate) }} firstName={candidate.firstName} lastName={candidate.lastName}
         major={candidate.major} degree={candidate.degree} starred={candidate.starred} key={candidate._id}/>);
 
   return (

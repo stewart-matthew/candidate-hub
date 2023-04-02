@@ -20,7 +20,7 @@ const ConfirmPhotoScreen = ({ route, navigation }) => {
           title={"Retake"}
         />
       <Button
-          onPress={() => { navigation.navigate('CandidateForm') }}
+          onPress={() => { navigation.navigate('CandidateForm', uri) }}
           title={"Save"}
         />
     </View>

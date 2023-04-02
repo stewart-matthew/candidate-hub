@@ -3,7 +3,8 @@ import Button from '../components/Button';
 import InputField from '../components/InputField';
 import { styles } from '../styles/styles';
 
-const CandidateFormScreen = ({ navigation }) => {
+const CandidateFormScreen = ({ route, navigation }) => {
+  const uri = route.params;
   return (
     <View>
       <ScrollView style={styles.ScrollView}>     
@@ -25,6 +26,17 @@ const CandidateFormScreen = ({ navigation }) => {
           />  
           <InputField input = {"Are you gay?"} textType = {"text"}
           />  
+          <Button 
+            onPress={() => { 
+              // get values from input fields and add to data object
+              let data = {}
+              data.resumeURI = uri;
+              // add data to api request
+              // if success go to confirmation screen:
+              navigation.navigate('ConfirmAddCandidate') 
+            }}
+            title={"Submit"}
+          />
       </ScrollView>
     </View>
   )
