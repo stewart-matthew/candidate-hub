@@ -14,6 +14,8 @@ const CandidateFormScreen = ({ route, navigation }) => {
           />  
           <InputField input = {"Email Address"} textType = {"email"}
           />  
+          <InputField input = {"Degree"} textType = {"text"}
+          />  
           <InputField input = {"Major"} textType = {"text"}
           />  
           <InputField input = {"GPA"} textType = {"decimal"}
@@ -22,14 +24,14 @@ const CandidateFormScreen = ({ route, navigation }) => {
           />  
           <InputField input = {"Position Type"} textType = {"text"}
           />  
-          <InputField input = {"Sponsership Needed"} textType = {"text"}
-          />  
-          <InputField input = {"Are you gay?"} textType = {"text"}
+          <InputField input = {"Sponsorship Needed"} textType = {"text"}
           />  
           <Button 
             onPress={() => { 
               // get values from input fields and add to data object
-              let data = {}
+              let data = {
+                
+              }
               data.resumeURI = uri;
               // add data to api request
               // if success go to confirmation screen:

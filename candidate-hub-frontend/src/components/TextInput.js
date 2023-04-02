@@ -3,14 +3,15 @@ import {SafeAreaView, StyleSheet, TextInput} from 'react-native';
 import * as Colors from '../styles/colors';
 
 const TextInputExample = (props) => {
-  const [text, onChangeText] = React.useState('This is actual text');
+  const [text, setText ] = React.useState('This is actual text');
+  const {onChangeText} = props;
  
   return (
     <SafeAreaView>
       <TextInput
         style={styles.input}
         onChangeText={onChangeText}
-        //value={text}
+        // value={text}
         inputMode={props.test}
       />
     </SafeAreaView>
