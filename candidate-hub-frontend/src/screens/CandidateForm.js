@@ -11,6 +11,7 @@ const CandidateFormScreen = ({ route, navigation }) => {
   const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [major, setMajor] = useState('');
+  const [degree, setDegree] = useState('');
   const [gpa, setGPA] = useState('');
   const [graduationDate, setGraduationDate] = useState('');
   const [positionType, setPositionType] = useState('');
@@ -32,12 +33,16 @@ const CandidateFormScreen = ({ route, navigation }) => {
             <TextInput style={styles.textInput}  inputMode={"text"} onChangeText={(txt) => setLastName(txt)}/>
           </View> 
           <View style = {styles.inputField}>     
-            <Text style = {styles.inputFieldText}> {"Email Adress"}{"\n"}</Text>
+            <Text style = {styles.inputFieldText}> {"Email Address"}{"\n"}</Text>
             <TextInput style={styles.textInput}  inputMode={"email"} onChangeText={(txt) => setEmail(txt)}/>
           </View> 
           <View style = {styles.inputField}>     
             <Text style = {styles.inputFieldText}> {"Major"}{"\n"}</Text>
             <TextInput style={styles.textInput}  inputMode={"text"} onChangeText={(txt) => setMajor(txt)}/>
+          </View>
+          <View style = {styles.inputField}>     
+            <Text style = {styles.inputFieldText}> {"Degree Type (BS, MS, etc.)"}{"\n"}</Text>
+            <TextInput style={styles.textInput}  inputMode={"text"} onChangeText={(txt) => setDegree(txt)}/>
           </View> 
           <View style = {styles.inputField}>     
             <Text style = {styles.inputFieldText}> {"GPA"}{"\n"}</Text>
@@ -52,7 +57,7 @@ const CandidateFormScreen = ({ route, navigation }) => {
             <TextInput style={styles.textInput}  inputMode={"text"} onChangeText={(txt) => setPositionType(txt)}/>
           </View>   
           <View style = {styles.inputField}>     
-            <Text style = {styles.inputFieldText}> {"Sponsership Needed"}{"\n"}</Text>
+            <Text style = {styles.inputFieldText}> {"Sponsorship Needed"}{"\n"}</Text>
             <TextInput style={styles.textInput}  inputMode={"text"} onChangeText={(txt) => setSponsorshipNeeded(txt)}/>
             </View>
           <Button 
@@ -61,10 +66,11 @@ const CandidateFormScreen = ({ route, navigation }) => {
               if (!lastName) return alert('The "Last Name" field is required.')
               if (!email) return alert('The "Email Address" field is required.')
               if (!major) return alert('The "Major" field is required.')
+              if (!degree) return alert('The "Degree Type" field is required.')
               if (!gpa) return alert('The "GPA" field is required.')
               if (!graduationDate) return alert('The "Graduation Date" field is required.')
               if (!positionType) return alert('The "Position Type" field is required.')
-              let data = { firstName, lastName, email, major, gpa, graduationDate, positionType, sponsorshipNeeded };
+              let data = { firstName, lastName, email, major, degree, gpa, graduationDate, positionType, sponsorshipNeeded };
               data.gpa = Number(gpa);
               if (sponsorshipNeeded) {
                 data.sponsorshipNeeded = true;
@@ -73,11 +79,12 @@ const CandidateFormScreen = ({ route, navigation }) => {
               }
               data.uploadDate = new Date().toString();
               data.event = 'UA Innovate 2023';
+              data.starred = false;
               if (uri) data.resumeURI = uri;
               console.log(data)
               // add data to api request
               // if success go to confirmation screen:
-              navigation.navigate('ConfirmAddCandidate') 
+              navigation.navigate('ConfirmAddCandidate', data) 
             }}
             title={"Submit"}
           />
