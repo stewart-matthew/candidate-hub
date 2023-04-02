@@ -16,6 +16,7 @@ import CandidateFormScreen from './src/screens/CandidateForm';
 import ConfirmPhotoScreen from './src/screens/ConfirmPhoto';
 import ConfirmAddCandidateScreen from './src/screens/ConfirmAddCandidate';
 import ViewCandidateScreen from './src/screens/ViewCandidate';
+import ApplyFiltersScreen from './src/screens/ApplyFilters';
 
 import { styles } from './src/styles/styles';
 import * as Colors from './src/styles/colors';
@@ -44,6 +45,7 @@ export default function App() {
           <Stack.Screen name="ConfirmPhoto" component={ConfirmPhotoScreen} />
           <Stack.Screen name="ConfirmAddCandidate" component={ConfirmAddCandidateScreen} />
           <Stack.Screen name="ViewCandidate" component={ViewCandidateScreen} />
+          <Stack.Screen name="ApplyFilters" component={ApplyFiltersScreen} />
         </Stack.Navigator>
       </NavigationContainer>
 

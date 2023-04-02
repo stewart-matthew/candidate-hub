@@ -1,4 +1,4 @@
-import { ScrollView, ActivityIndicator, Text, View } from 'react-native';
+import { ScrollView, Text, View } from 'react-native';
 import CandidateBox from '../components/CandidateBox';
 import Button from '../components/Button';
 import axios from 'axios'
@@ -6,8 +6,12 @@ import { baseURL } from '../config/config/';
 import { useState, useEffect } from 'react';
 import { styles } from '../styles/styles';
 
-const BrowseCandidatesScreen = ({ navigation }) => {
+const BrowseCandidatesScreen = ({ route, navigation }) => {
+  route.params = route.params || {};
+  const { nameSearch, majorSearch, degreeSearch, gpaSearch, positionTypeSearch } = route.params;
+
   const [candidates, setCandidates] = useState([]);
+
   var i = 0;
   navigation.addListener('focus', () => {
     if (i === 0) return i++;
@@ -34,7 +38,23 @@ const BrowseCandidatesScreen = ({ navigation }) => {
   const candidateList =
     candidates.length === 0
       ? <Text>There are no candidates!</Text>
-      : candidates.sort((a, b) => {
+      : candidates.filter((candidate) => {
+        if (nameSearch && nameSearch.length > 0 && !(candidate.firstName.toLowerCase() + " " + candidate.lastName.toLowerCase()).includes(nameSearch.trim().toLowerCase())) return false;
+        if (majorSearch && majorSearch.length > 0 && !candidate.major.toLowerCase().includes(majorSearch.trim().toLowerCase())) return false;
+        if (degreeSearch && degreeSearch.length > 0) {
+          let values = [];
+          if (degreeSearch.includes('A')) values.push('associate', 'aa', 'as');
+          if (degreeSearch.includes('B')) values.push('bachelor', 'ba', 'bs');
+          if (degreeSearch.includes('M')) values.push('master', 'ma', 'mfa', 'mba', 'ms');
+          if (!values.includes(candidate.degree.toLowerCase())) return false;
+        }
+        if (gpaSearch && gpaSearch > 0 && candidate.gpa < gpaSearch) return false;
+        if (positionTypeSearch && positionTypeSearch.length > 0) {
+          if (positionTypeSearch === 'I' && candidate.positionType !== 'Internship') return false;
+          if (positionTypeSearch === 'F' && candidate.positionType !== 'Full Time') return false;
+        }
+        return true;
+      }).sort((a, b) => {
         if (a.starred === b.starred) {
           return a.lastName < b.lastName ? -1 : 1;
         }
@@ -44,6 +64,7 @@ const BrowseCandidatesScreen = ({ navigation }) => {
 
   return (
     <ScrollView style={styles.ScrollView}>
+      <Button title="Set Filters" onPress={() => navigation.navigate('ApplyFilters', {nameSearch, majorSearch, degreeSearch, gpaSearch, positionTypeSearch})}/>
       {candidateList}
     </ScrollView>
   );
