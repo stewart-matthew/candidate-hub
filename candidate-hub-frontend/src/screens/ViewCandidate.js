@@ -47,49 +47,49 @@ const ViewCandidateScreen = ({ route, navigation }) => {
   return (
     
     <SafeAreaView>
-       <View style={{flexDirection: 'row', textAlign: 'center', padding: 5}}>
+       <View style={{flexDirection: 'row', textAlign: 'center', padding: 35, paddingTop: 20}}>
       <Text style={{paddingLeft: 15, paddingTop: 15, fontSize: 35, fontWeight: 'bold'}}>Information</Text>
       </View>
       <Pressable onPress={this.toggleButtonState}>
       <View style={{
-        alignSelf: 'flex-end',position: 'absolute', marginTop: -35, right: 35}}>
+        alignSelf: 'flex-end',position: 'absolute', marginTop: -85, right: 45}}>
         <Ionicons style={styles.star2}name={isStarred ? 'ios-star' : 'ios-star-outline'} size={50} />
         </View>
       </Pressable>
       <ScrollView>
-        <View style={{ padding: 10, margin: 10, marginBottom: -2, flexDirection: 'row'}}>
+        <View style={{ padding: 10, margin: 10, marginLeft: 25, marginBottom: -2, flexDirection: 'row'}}>
                 <Text style={{ fontSize: 18, fontWeight: 'bold' }}>{'First Name'}</Text><Text style={{fontSize: 18}}>{": " + userData.firstName}</Text>
         </View>        
-        <View style={{ padding: 10, margin: 10, marginBottom: -2, flexDirection: 'row'}}>
+        <View style={{ padding: 10, margin: 10, marginLeft: 25, marginBottom: -2, flexDirection: 'row'}}>
                 <Text style={{ fontSize: 18, fontWeight: 'bold' }}>{'Last Name'}</Text><Text style={{fontSize: 18}}>{": " + userData.lastName}</Text>
         </View>        
-        <View style={{ padding: 10, margin: 10, marginBottom: -2, flexDirection: 'row'}}> 
+        <View style={{ padding: 10, margin: 10, marginLeft: 25, marginBottom: -2, flexDirection: 'row'}}> 
                 <Text style={{ fontSize: 18, fontWeight: 'bold' }}>{'Email'}</Text><Text style={{fontSize: 18}}>{": " + userData.email}</Text>
         </View>        
-        <View style={{ padding: 10, margin: 10, marginBottom: -2, flexDirection: 'row'}}> 
+        <View style={{ padding: 10, margin: 10, marginLeft: 25, marginBottom: -2, flexDirection: 'row'}}> 
                 <Text style={{ fontSize: 18, fontWeight: 'bold' }}>{'Major'}</Text><Text style={{fontSize: 18}}>{": " + userData.major}</Text>
         </View>        
-        <View style={{ padding: 10, margin: 10, marginBottom: -2, flexDirection: 'row'}}> 
+        <View style={{ padding: 10, margin: 10, marginLeft: 25, marginBottom: -2, flexDirection: 'row'}}> 
                 <Text style={{ fontSize: 18, fontWeight: 'bold' }}>{'Degree'}</Text><Text style={{fontSize: 18}}>{": " + userData.degree}</Text>
         </View>        
-        <View style={{ padding: 10, margin: 10, marginBottom: -2, flexDirection: 'row'}}> 
+        <View style={{ padding: 10, margin: 10, marginLeft: 25, marginBottom: -2, flexDirection: 'row'}}> 
                 <Text style={{ fontSize: 18, fontWeight: 'bold' }}>{'GPA'}</Text><Text style={{fontSize: 18}}>{": " + userData.gpa}</Text>
         </View>        
-        <View style={{ padding: 10, margin: 10, marginBottom: -2, flexDirection: 'row'}}> 
+        <View style={{ padding: 10, margin: 10, marginLeft: 25, marginBottom: -2, flexDirection: 'row'}}> 
                 <Text style={{ fontSize: 18, fontWeight: 'bold' }}>{'Graduation Date'}</Text><Text style={{fontSize: 18}}>{": " + processGraduationDate(userData.graduationDate)}</Text>
         </View>        
-        <View style={{ padding: 10, margin: 10, marginBottom: -2, flexDirection: 'row'}}> 
+        <View style={{ padding: 10, margin: 10, marginLeft: 25, marginBottom: -2, flexDirection: 'row'}}> 
                 <Text style={{ fontSize: 18, fontWeight: 'bold' }}>{'Position Type'}</Text><Text style={{fontSize: 18}}>{": " + userData.positionType}</Text>
         </View>        
-        <View style={{ padding: 10, margin: 10, marginBottom: -2, flexDirection: 'row'}}> 
+        <View style={{ padding: 10, margin: 10, marginLeft: 25, marginBottom: -2, flexDirection: 'row'}}> 
                 <Text style={{ fontSize: 18, fontWeight: 'bold' }}>{'Sponsorship Needed'}</Text><Text style={{fontSize: 18}}>{": " + (userData.sponsorshipNeeded ? 'Yes' : 'No')}</Text>
         </View>        
-        <View style={{ padding: 10, margin: 10, marginBottom: -2, flexDirection: 'row'}}> 
+        <View style={{ padding: 10, margin: 10, marginLeft: 25, marginBottom: -2, flexDirection: 'row'}}> 
         </View>
       <Image style={{
-        width: 360,
-        height: 360,
-        marginBottom: 75
+        width: 415,
+        height: 615,
+        marginBottom: 100
        }}
        resizeMode={"contain"} source={{uri: 'data:image/png;base64,' + resume}}></Image>
        </ScrollView>

@@ -7,8 +7,9 @@ const ConfirmPhotoScreen = ({ route, navigation }) => {
     <View>
       <View style={{padding: '2%'}}><Image
        style={{
-        width: 360,
-        height: 360
+        width: 400,
+        height: 500,
+        alignContent: 'center'
        }}
        resizeMode={"contain"}
        source={{

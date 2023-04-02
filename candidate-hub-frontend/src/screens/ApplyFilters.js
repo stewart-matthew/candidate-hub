@@ -32,7 +32,7 @@ const ApplyFiltersScreen = ({ route, navigation }) => {
         inputStyle={{color: 'black'}}
       />
       <View>     
-            <Text style={{textAlign: 'center', fontSize: 18, marginBottom: '-5%'}}> {"Filter by Degree Type"}{"\n"}</Text>
+            <Text style={{textAlign: 'center', fontSize: 18, margin:10,marginBottom: '-5%'}}> {"Filter by Degree Type"}{"\n"}</Text>
             <View style={{ flexDirection:"row", minWidth: "100%"}}>
               <Pressable style={() => [_degreeSearch && _degreeSearch.includes('A') ? styles.buttonSelected : styles.buttonUnselected ]} onPress={() => setDegreeSearch(_degreeSearch.includes('A') ? _degreeSearch.replace('A', '') : (_degreeSearch + 'A'))}>
                     <Text style={ [_degreeSearch && _degreeSearch.includes('A') ? styles.buttonText : styles.buttonTextUnselected, {fontSize: 18} ]} >Associate's</Text>
@@ -46,7 +46,7 @@ const ApplyFiltersScreen = ({ route, navigation }) => {
             </View>
       </View>
       <View>     
-            <Text style={{textAlign: 'center', fontSize: 18, marginBottom: '-5%'}}> {"Filter by Minimum GPA"}{"\n"}</Text>
+            <Text style={{textAlign: 'center', fontSize: 18, marginTop:10, marginBottom: '-5%'}}> {"Filter by Minimum GPA"}{"\n"}</Text>
             <View style={{ flexDirection:"row", minWidth: "100%"}}>
               <Pressable style={() => [_gpaSearch === 2 ? styles.buttonSelected : styles.buttonUnselected ]} onPress={() => setGpaSearch(_gpaSearch === 2 ? 0 : 2)}>
                     <Text style={ [_gpaSearch === 2 ? styles.buttonText : styles.buttonTextUnselected ]} >2.0</Text>
@@ -63,8 +63,8 @@ const ApplyFiltersScreen = ({ route, navigation }) => {
             </View>
       </View>
       <View>     
-            <Text style={{textAlign: 'center', fontSize: 18, marginBottom: '-5%'}}> {"Filter by Position Type"}{"\n"}</Text>
-            <View style={{ flexDirection:"row", minWidth: "100%"}}>
+            <Text style={{textAlign: 'center', fontSize: 18, marginTop:10, marginBottom: '-5%'}}> {"Filter by Position Type"}{"\n"}</Text>
+            <View style={{ flexDirection:"row", minWidth: "100%", marginBottom:10}}>
                 <Pressable style={() => [_positionTypeSearch && _positionTypeSearch.includes('I') ? styles.buttonSelected : styles.buttonUnselected ]} onPress={() => setPositionTypeSearch(_positionTypeSearch.includes('I') ? _positionTypeSearch.replace('I', '') : (_positionTypeSearch + 'I'))}>
                     <Text style={ [_positionTypeSearch && _positionTypeSearch.includes('I') ? styles.buttonText : styles.buttonTextUnselected ]} >Internship</Text>
                 </Pressable>
